@@ -4,6 +4,14 @@
 For some reason i need to generate and validate apache's MD5 password and eventually store them in mysql. 
 This can be useful to use php+mysql instead of .htaccess :)
 
+### Prerequisites
+This procedure was tested on Debian 8. It should work on other GNU/Linux distros with small adjustments.
+
+However, on Debian, you'll need to install these packages:
+```sh
+# apt-get install build-essential apache2-dev apache2-utils libmysqlclient-dev git
+```
+
 ### Building
 
 - Connect to mysql and give this query, take note of Value result:
