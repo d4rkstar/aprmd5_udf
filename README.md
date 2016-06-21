@@ -77,3 +77,11 @@ From your bash, login as root and remove the two shared object files:
 # rm $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so
 # rm $MYSQL_PLUGIN_DIR/aprmd5_udf.so
 ```
+
+### Reference
+Here some links where i took informations and some of the code:
+
+- http://blog.loftdigital.com/blog/how-to-write-mysql-functions-in-c
+- http://datapile.coffeecrew.org/blog/2010/11/02/programming-with-the-apr-using-md5/
+- http://dev.mysql.com/doc/refman/5.7/en/adding-functions.html
+- https://apr.apache.org/docs/apr/2.0/group___a_p_r___m_d5.html
