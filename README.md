@@ -15,13 +15,11 @@ mysql> show variables like 'plugin_dir';
 - Got to your bash, login as root and export the following variables:
 
 ```sh
-# export APU_LIBS="`apu-1-config --includes --ldflags --link-ld --libs`"
-# export APR_LIBS="`apr-1-config --cflags --cppflags --includes --ldflags --link-ld --libs`"
-# export MYSQL_PLUGIN_DIR='/usr/lib/mysql/plugin/' # replace here with the variable value
-# gcc $(mysql_config --cflags) -shared -fPIC -o $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so aprmd5_validate_udf.c $APR_LIBS $APU_LIBS 
-# gcc $(mysql_config --cflags) -shared -fPIC -o $MYSQL_PLUGIN_DIR/aprmd5_udf.so aprmd5_udf.c $APR_LIBS $APU_LIBS
-# chmod -x $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so
-# chmod -x $MYSQL_PLUGIN_DIR/aprmd5_udf.so
+export MYSQL_PLUGIN_DIR='/usr/lib/mysql/plugin/' # replace here with the variable value
+gcc $(apr-1-config --includes) $(apu-1-config --includes) $(mysql_config --cflags) -shared -fPIC -o $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so aprmd5_validate_udf.c $(apr-1-config --libs --link-ld) $(apu-1-config --libs --link-ld)
+gcc $(apr-1-config --includes) $(apu-1-config --includes) $(mysql_config --cflags) -shared -fPIC -o $MYSQL_PLUGIN_DIR/aprmd5_udf.so aprmd5_udf.c $(apr-1-config --libs --link-ld) $(apu-1-config --libs --link-ld)
+chmod -x $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so
+chmod -x $MYSQL_PLUGIN_DIR/aprmd5_udf.so
 ```
 
 ### Installation
