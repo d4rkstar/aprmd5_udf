@@ -83,9 +83,9 @@ Query OK, 0 rows affected (0.00 sec)
 
 From your bash, login as root and remove the two shared object files:
 ```sh
-# export MYSQL_PLUGIN_DIR='/usr/lib/mysql/plugin/' # replace here with the variable value
-# rm $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so
-# rm $MYSQL_PLUGIN_DIR/aprmd5_udf.so
+export MYSQL_PLUGIN_DIR='/usr/lib/mysql/plugin/' # replace here with the variable value
+rm $MYSQL_PLUGIN_DIR/aprmd5_validate_udf.so
+rm $MYSQL_PLUGIN_DIR/aprmd5_udf.so
 ```
 
 ### Reference
